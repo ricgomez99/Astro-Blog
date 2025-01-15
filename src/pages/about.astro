@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css'
+
 const pageTitle = 'About Me';
 
 interface Identity {
@@ -20,6 +22,10 @@ const skills: string[] = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'NestJs
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = 'navy';
+const skillFontWeight = 'bold'
+const skillTextType = 'uppercase'
 ---
 <html lang="en">
     <head>
@@ -29,6 +35,18 @@ const goal = 3;
 		<meta name="generator" content={Astro.generator} />
         <title>{ pageTitle }</title>
     </head>
+    <style define:vars={{ skillColor, skillFontWeight, skillTextType }}>
+        h1 {
+            font-size: 4rem;
+            color: purple;
+        }
+
+        .skill {
+            color: var(--skillColor);
+            font-weight: var(--skillFontWeight);
+            text-transform: var(--skillTextType);
+        }
+    </style>
     <body>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
@@ -48,7 +66,7 @@ const goal = 3;
         <p>My skills are:</p>
         <ul>
             { skills && skills.map((element) => (
-               <li>{element}</li> 
+               <li class="skill">{element}</li> 
             ))}
         </ul>
 
