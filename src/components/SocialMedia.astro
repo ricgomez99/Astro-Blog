@@ -1,0 +1,32 @@
+---
+interface Props {
+    platform: string;
+    username: string;
+};
+
+const { platform, username}: Props = Astro.props
+const textColor = 'white';
+const backgroundColor = '#4c1d95';
+const hoverTextColor = '#4c1d95'
+const hoverBackgroundColor = 'white'
+---
+
+<style define:vars={{ textColor, backgroundColor, hoverTextColor, hoverBackgroundColor }}>
+    a {
+        padding: 0.5rem 1rem;
+        color: var(--textColor);
+        background-color: var(--backgroundColor);
+        text-decoration: none;
+        border-radius: 12px;
+        border: 1px solid var(--backgroundColor);
+        cursor: pointer;
+        transition: all ease-in-out;
+        transition-duration: 0.3s;
+    }
+
+    a:hover {
+        color: var(--hoverTextColor);
+        background-color: var(--hoverBackgroundColor);
+    }
+</style>
+<a target="_blank" href={`https://www.${platform}.com/${username}`}>{ platform }</a>
