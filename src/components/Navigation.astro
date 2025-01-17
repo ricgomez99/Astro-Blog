@@ -1,0 +1,20 @@
+---
+interface Route {
+    name: string;
+    path: string;
+};
+
+type Routes = Route[];
+
+const routes: Routes = [
+    { name: 'Home', path: '/' }, 
+    { name: 'About', path: '/about' }, 
+    { name: 'Blog', path: '/blog' }
+];
+---
+
+<nav class="nav-links">
+    {routes && routes.map((route) => (
+        <a href={route.path}>{ route.name }</a>
+    ))}
+</nav>
