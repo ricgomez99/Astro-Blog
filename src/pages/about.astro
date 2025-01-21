@@ -1,10 +1,8 @@
 ---
-import '../styles/global.css'
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = 'About Me';
-
+const pageTitle = 'About';
+const mainTitle = 'About me'
 interface Identity {
     firstName: string;
     country: string;
@@ -29,54 +27,37 @@ const skillColor = 'navy';
 const skillFontWeight = 'bold'
 const skillTextType = 'uppercase'
 ---
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-        <title>{ pageTitle }</title>
-    </head>
-    <style define:vars={{ skillColor, skillFontWeight, skillTextType }}>
-        h1 {
-            font-size: 4rem;
-            color: purple;
-        }
 
-        .skill {
+<style define:vars={{ skillColor, skillFontWeight, skillTextType }}>
+    .skill {
             color: var(--skillColor);
             font-weight: var(--skillFontWeight);
             text-transform: var(--skillTextType);
         }
-    </style>
-    <body>
-        <Header />
-        <h1>{ pageTitle }</h1>
-        <h2>... and my new Astro site!</h2>
-        <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-        <p>Here are a few facts about me:</p>
-        <ul>
-            <li>My name is { identity.firstName }.</li>
-            <li>I live in { identity.country } and I work as a { identity.occupation }</li>
-            <li>My hobbies are: </li>
-            { identity.hobbies && identity.hobbies.map((element, index) => (
-                <ol>Hobbi { index + 1 }: { element }</ol>
-            ))}
-        </ul>
-        <p>My skills are:</p>
-        <ul>
-            { skills && skills.map((element) => (
-               <li class="skill">{element}</li> 
-            ))}
-        </ul>
+</style>
 
-        { happy && <p>I'm happy to learn Astro!</p> }
-        { finished && <p>I finished my tutorial</p> }
-        { goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days</p>}
-        <Footer />
-        <script>
-            import '../scripts/menu.js'
-        </script>
-    </body>
-</html>
+<BaseLayout pageTitle={pageTitle} mainTitle={mainTitle} >
+    <h2>... and my new Astro site!</h2>
+    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    <p>Here are a few facts about me:</p>
+    <ul>
+        <li>My name is { identity.firstName }.</li>
+        <li>I live in { identity.country } and I work as a { identity.occupation }</li>
+        <li>My hobbies are: </li>
+        { identity.hobbies && identity.hobbies.map((element, index) => (
+            <ol>Hobbi { index + 1 }: { element }</ol>
+        ))}
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+        { skills && skills.map((element) => (
+            <li class="skill">{element}</li> 
+        ))}
+    </ul>
+
+    { happy && <p>I'm happy to learn Astro!</p> }
+    { finished && <p>I finished my tutorial</p> }
+    { goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days</p>}
+</BaseLayout>
+
