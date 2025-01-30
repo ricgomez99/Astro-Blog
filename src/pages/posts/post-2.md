@@ -1,4 +1,5 @@
 ---
+url: "./post-2/"
 layout: "../../layouts/PostLayout.astro"
 title: My Second Blog Post
 author: Astro Learner

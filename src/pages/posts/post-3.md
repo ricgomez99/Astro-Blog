@@ -1,4 +1,5 @@
 ---
+url: "./post-3/"
 layout: "../../layouts/PostLayout.astro"
 title: My Third Blog Post
 author: Astro Learner

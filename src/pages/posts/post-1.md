@@ -1,4 +1,5 @@
 ---
+url: "./post-1/"
 layout: "../../layouts/PostLayout.astro"
 title: "My First Blog Post"
 pubDate: 2022-07-01
