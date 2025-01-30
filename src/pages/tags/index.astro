@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostLayout from "../../layouts/PostLayout.astro";
+const allPosts =  Object.values(import.meta.glob('../posts/*.md', { eager: true }))
+---
+
+
+
+<PostLayout>
+</PostLayout>
